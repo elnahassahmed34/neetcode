@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/nahass/githup/neetcode/Arrays_Hashing",
-      "program": "/home/nahass/githup/neetcode/Arrays_Hashing/build/Debug/outDebug",
+      "cwd": "/home/nahass/githup/neetcode/01_Arrays_Hashing",
+      "program": "/home/nahass/githup/neetcode/01_Arrays_Hashing/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
