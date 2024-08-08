@@ -1,45 +1,35 @@
 #include <iostream>
-#include <string>
-#include <cctype> // for isalnum
-
-using namespace std;
+#include <vector>
 
 class Solution {
 public:
-    bool isPalindrome(string s) {
-        // Step 1: Normalize the string (lowercase and remove non-alphanumeric characters)
-        string normalized;
-        for (char c : s) {
-            if (isalnum(c)) { // Check if character is alphanumeric
-                normalized += tolower(c); // Convert to lowercase
-            }
-        }
-        
-        // Step 2: Use two pointers to check palindrome
+    std::vector<int> twoSum(std::vector<int>& numbers, int target) {
         int left = 0;
-        int right = normalized.size() - 1;
-        
+        int right = numbers.size() - 1;
+
         while (left < right) {
-            if (normalized[left] != normalized[right]) {
-                return false; // Characters mismatch
+            int current_sum = numbers[left] + numbers[right];
+            if (current_sum == target) {
+                return {left + 1, right + 1}; // Returning 1-indexed result
+            } else if (current_sum < target) {
+                left++; // Move left pointer to the right
+            } else {
+                right--; // Move right pointer to the left
             }
-            left++;
-            right--;
         }
-        
-        return true; // All characters matched, it's a palindrome
+
+        return {}; // Just a fallback, though the problem guarantees exactly one solution
     }
 };
 
 int main() {
     Solution solution;
-    
-    // Test cases
-    string s1 = "Was it a car or a cat I saw?";
-    string s2 = "tab a cat";
-    
-    cout << "Example 1: " << (solution.isPalindrome(s1) ? "true" : "false") << endl;
-    cout << "Example 2: " << (solution.isPalindrome(s2) ? "true" : "false") << endl;
-    
+    std::vector<int> numbers = {1, 2, 3, 4};
+    int target = 3;
+    std::vector<int> result = solution.twoSum(numbers, target);
+    for (int index : result) {
+        std::cout << index << " ";
+    }
+    std::cout << std::endl;
     return 0;
 }
